@@ -27,6 +27,7 @@ void yyerror(const char *s);
 // define the constant-string tokens:
 %token SNAZZLE TYPE
 %token END
+%token DIRECTION
 %token SLASH
 %token COLON
 %token LEFT_BRACE
@@ -48,6 +49,7 @@ void yyerror(const char *s);
 %token LEFT_BRACKET
 %token RIGHT_BRACKET
 %token MINUS
+
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:
 %token <ival> INT
@@ -82,7 +84,7 @@ body_lines:
 	| body_line
 	;
 body_line:
-	INT INT INT INT STRING COMMA { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
+	INT INT INT INT STRING COMMA DIRECTION { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
 	;
 footer:
 	END

@@ -27,6 +27,7 @@ void yyerror(const char *s);
 // define the constant-string tokens:
 %token SNAZZLE TYPE
 %token END
+%token DIRECTION
 %token SLASH
 %token COLON
 %token LEFT_BRACE
@@ -83,7 +84,7 @@ body_lines:
 	| body_line
 	;
 body_line:
-	INT INT INT INT STRING COMMA { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
+	INT INT INT INT STRING COMMA HASH { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
 	;
 footer:
 	END

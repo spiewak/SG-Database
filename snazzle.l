@@ -31,6 +31,7 @@ A			   { return AUTOINCREMENT; }
 \)			   { return RIGHT_BRACKET; }
 -			   { return MINUS; }
 
+[[0-9]*\.[0-9]*,[0-9]*\.[0-9]*,[0-9]*\.[0-9]*,[0-9]*\.[0-9]*]]  { return DIRECTION; } 
 [0-9]+\.[0-9]+ { yylval.dval = atof(yytext); return DOUBLE; }
 [0-9]+         { yylval.ival = atoi(yytext); return INT; }
 [a-zA-Z0-9]+   {
