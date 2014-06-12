@@ -1,5 +1,15 @@
-/ mojabaza /  
-: id :
+/ tabelka1 /  
+: , id , imie , nazwisko , wiek:
 { 
- [ sa ] 
+ [ 1 Marcin Kowalski] 
+ [ 2 Barbara Puc ]
+ [ 3 Zygmunt Kasa ]
+}
+
+/ tabelka2 /  
+: , id , imie , nazwisko , wiek:
+{ 
+ [ 1 Jacek Rostow] 
+ [ 2 Jaroslaw Ges ]
+ [ 3 Piotr Wasicki  s ]
 }

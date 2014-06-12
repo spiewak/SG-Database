@@ -15,8 +15,8 @@ end            { return END; }
 \}			   { return RIGHT_BRACE; }
 \[			   { return LEFT_SQUARE; }
 \] 			   { return RIGHT_SQUARE; }
-,	           { return COMMA; }
-#		       { return HASH; }
+,			   { return COMMA; }
+#			   { return HASH; }
 \%			   { return PERCENTAGE; }
 !			   { return INTRJECTION; }
 = 			   { return EQUAL; }

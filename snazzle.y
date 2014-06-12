@@ -92,17 +92,34 @@ footer:
 */
 
 base:
-	table
+	base table | table
 	;
 table:
-	SLASH VARCHAR SLASH column LEFT_BRACE record RIGHT_BRACE
+	SLASH VARCHAR SLASH COLON columns COLON LEFT_BRACE records RIGHT_BRACE
+	;
+columns:
+	columns column | column 
 	;
 column:
-	COLON VARCHAR COLON
+	COMMA VARCHAR
+	;
+records:
+	records record | record
 	;
 record:
-	LEFT_SQUARE VARCHAR RIGHT_SQUARE
+	LEFT_SQUARE values RIGHT_SQUARE
 	;
+values:
+	values value | value
+	;
+value:
+	VARCHAR | INT | DOUBLE | coordinate | date
+	;
+date:
+	INT MINUS INT MINUS INT
+	;
+coordinate:
+	BACKSLASH DOUBLE DIRECTION COMMA DOUBLE
 	
 %%
 
