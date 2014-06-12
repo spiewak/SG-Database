@@ -64,7 +64,7 @@
      MINUS = 282,
      INT = 283,
      DOUBLE = 284,
-     STRING = 285
+     VARCHAR = 285
    };
 #endif
 

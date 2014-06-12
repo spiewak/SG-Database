@@ -54,13 +54,13 @@ void yyerror(const char *s);
 // by convention), and associate each with a field of the union:
 %token <ival> INT
 %token <dval> DOUBLE
-%token <sval> STRING
+%token <sval> VARCHAR
 
 %%
 
 // the first rule defined is the highest-level rule, which in our
 // case is just the concept of a whole "snazzle file":
-snazzle:
+/*snazzle:
 	header template body_section footer { cout << "done with a snazzle file!" << endl; }
 	;
 header:
@@ -74,7 +74,7 @@ typelines:
 	| typeline
 	;
 typeline:
-	TYPE STRING { cout << "new defined snazzle type: " << $2 << endl; }
+	TYPE VARCHAR { cout << "new defined snazzle type: " << $2 << endl; }
 	;
 body_section:
 	body_lines
@@ -84,10 +84,21 @@ body_lines:
 	| body_line
 	;
 body_line:
-	INT INT INT INT STRING COMMA DIRECTION { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
+	INT INT INT INT VARCHAR COMMA HASH { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
 	;
 footer:
 	END
+	;
+*/
+
+base:
+	table
+	;
+table:
+	SLASH VARCHAR SLASH column LEFT_BRACE record RIGHT_BRACE
+	;
+column:
+	COLON VARCHAR COLON
 	;
 
 %%

@@ -933,7 +933,7 @@ YY_RULE_SETUP
 {
 	// we have to copy because we can't rely on yytext not changing underneath us:
 	yylval.sval = strdup(yytext);
-	return STRING;
+	return VARCHAR;
 }
 	YY_BREAK
 case 30:
