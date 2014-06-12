@@ -113,11 +113,30 @@ void yyerror(const char *s);
      SNAZZLE = 258,
      TYPE = 259,
      END = 260,
-     COMMA = 261,
+     SLASH = 261,
      COLON = 262,
-     INT = 263,
-     DOUBLE = 264,
-     STRING = 265
+     LEFT_BRACE = 263,
+     RIGHT_BRACE = 264,
+     LEFT_SQUARE = 265,
+     RIGHT_SQUARE = 266,
+     COMMA = 267,
+     HASH = 268,
+     PERCENTAGE = 269,
+     INTRJECTION = 270,
+     EQUAL = 271,
+     LESS_THEN = 272,
+     MORE_THEN = 273,
+     MORE_EQUAL_THEN = 274,
+     LESS_EQUAL_THEN = 275,
+     CONSTRAINT = 276,
+     AUTOINCREMENT = 277,
+     BACKSLASH = 278,
+     LEFT_BRACKET = 279,
+     RIGHT_BRACKET = 280,
+     MINUS = 281,
+     INT = 282,
+     DOUBLE = 283,
+     STRING = 284
    };
 #endif
 
@@ -137,7 +156,7 @@ typedef union YYSTYPE
 
 
 /* Line 293 of yacc.c  */
-#line 141 "snazzle.tab.c"
+#line 160 "snazzle.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -149,7 +168,7 @@ typedef union YYSTYPE
 
 
 /* Line 343 of yacc.c  */
-#line 153 "snazzle.tab.c"
+#line 172 "snazzle.tab.c"
 
 #ifdef short
 # undef short
@@ -368,10 +387,10 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  5
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   20
+#define YYLAST   13
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  11
+#define YYNTOKENS  30
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  10
 /* YYNRULES -- Number of rules.  */
@@ -381,7 +400,7 @@ union yyalloc
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
-#define YYMAXUTOK   265
+#define YYMAXUTOK   284
 
 #define YYTRANSLATE(YYX)						\
   ((unsigned int) (YYX) <= YYMAXUTOK ? yytranslate[YYX] : YYUNDEFTOK)
@@ -415,7 +434,9 @@ static const yytype_uint8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
+      25,    26,    27,    28,    29
 };
 
 #if YYDEBUG
@@ -430,17 +451,17 @@ static const yytype_uint8 yyprhs[] =
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
 static const yytype_int8 yyrhs[] =
 {
-      12,     0,    -1,    13,    14,    17,    20,    -1,     3,     9,
-      -1,    15,    -1,    15,    16,    -1,    16,    -1,     4,    10,
-      -1,    18,    -1,    18,    19,    -1,    19,    -1,     8,     8,
-       8,     8,    10,     6,    -1,     5,    -1
+      31,     0,    -1,    32,    33,    36,    39,    -1,     3,    28,
+      -1,    34,    -1,    34,    35,    -1,    35,    -1,     4,    29,
+      -1,    37,    -1,    37,    38,    -1,    38,    -1,    27,    27,
+      27,    27,    29,    12,    -1,     5,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    44,    44,    47,    50,    53,    54,    57,    60,    63,
-      64,    67,    70
+       0,    63,    63,    66,    69,    72,    73,    76,    79,    82,
+      83,    86,    89
 };
 #endif
 
@@ -449,10 +470,14 @@ static const yytype_uint8 yyrline[] =
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "$end", "error", "$undefined", "SNAZZLE", "TYPE", "END", "COMMA",
-  "COLON", "INT", "DOUBLE", "STRING", "$accept", "snazzle", "header",
-  "template", "typelines", "typeline", "body_section", "body_lines",
-  "body_line", "footer", 0
+  "$end", "error", "$undefined", "SNAZZLE", "TYPE", "END", "SLASH",
+  "COLON", "LEFT_BRACE", "RIGHT_BRACE", "LEFT_SQUARE", "RIGHT_SQUARE",
+  "COMMA", "HASH", "PERCENTAGE", "INTRJECTION", "EQUAL", "LESS_THEN",
+  "MORE_THEN", "MORE_EQUAL_THEN", "LESS_EQUAL_THEN", "CONSTRAINT",
+  "AUTOINCREMENT", "BACKSLASH", "LEFT_BRACKET", "RIGHT_BRACKET", "MINUS",
+  "INT", "DOUBLE", "STRING", "$accept", "snazzle", "header", "template",
+  "typelines", "typeline", "body_section", "body_lines", "body_line",
+  "footer", 0
 };
 #endif
 
@@ -462,15 +487,16 @@ static const char *const yytname[] =
 static const yytype_uint16 yytoknum[] =
 {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
-     265
+     265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284
 };
 # endif
 
 /* YYR1[YYN] -- Symbol number of symbol that rule YYN derives.  */
 static const yytype_uint8 yyr1[] =
 {
-       0,    11,    12,    13,    14,    15,    15,    16,    17,    18,
-      18,    19,    20
+       0,    30,    31,    32,    33,    34,    34,    35,    36,    37,
+      37,    38,    39
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
@@ -498,18 +524,18 @@ static const yytype_int8 yydefgoto[] =
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-#define YYPACT_NINF -9
+#define YYPACT_NINF -28
 static const yytype_int8 yypact[] =
 {
-      -3,    -8,     2,    -1,    -9,    -9,    -6,    -2,    -1,    -9,
-      -9,     0,     4,    -2,    -9,    -9,     3,    -9,    -9,    -9,
-       5,    -5,     1,    -9
+      -3,   -27,     2,    -1,   -28,   -28,   -25,   -22,    -1,   -28,
+     -28,   -21,     3,   -22,   -28,   -28,   -20,   -28,   -28,   -28,
+     -18,   -19,     0,   -28
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -9,    -9,    -9,    -9,    -9,     6,    -9,    -9,     7,    -9
+     -28,   -28,   -28,   -28,   -28,     5,   -28,   -28,    -2,   -28
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -518,31 +544,29 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-       1,     4,     5,     6,    10,    22,    11,    23,    16,    17,
-       0,    20,     0,    21,    15,     0,     0,     0,     0,     0,
-      19
+       1,     4,     5,     6,    10,    11,    16,    20,    17,    21,
+      22,    19,    23,    15
 };
 
 #define yypact_value_is_default(yystate) \
-  ((yystate) == (-9))
+  ((yystate) == (-28))
 
 #define yytable_value_is_error(yytable_value) \
   YYID (0)
 
-static const yytype_int8 yycheck[] =
+static const yytype_uint8 yycheck[] =
 {
-       3,     9,     0,     4,    10,    10,     8,     6,     8,     5,
-      -1,     8,    -1,     8,     8,    -1,    -1,    -1,    -1,    -1,
-      13
+       3,    28,     0,     4,    29,    27,    27,    27,     5,    27,
+      29,    13,    12,     8
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
    symbol of state STATE-NUM.  */
 static const yytype_uint8 yystos[] =
 {
-       0,     3,    12,    13,     9,     0,     4,    14,    15,    16,
-      10,     8,    17,    18,    19,    16,     8,     5,    20,    19,
-       8,     8,    10,     6
+       0,     3,    31,    32,    28,     0,     4,    33,    34,    35,
+      29,    27,    36,    37,    38,    35,    27,     5,    39,    38,
+      27,    27,    29,    12
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1379,35 +1403,35 @@ yyreduce:
         case 2:
 
 /* Line 1806 of yacc.c  */
-#line 44 "snazzle.y"
+#line 63 "snazzle.y"
     { cout << "done with a snazzle file!" << endl; }
     break;
 
   case 3:
 
 /* Line 1806 of yacc.c  */
-#line 47 "snazzle.y"
+#line 66 "snazzle.y"
     { cout << "reading a snazzle file version " << (yyvsp[(2) - (2)].dval) << endl; }
     break;
 
   case 7:
 
 /* Line 1806 of yacc.c  */
-#line 57 "snazzle.y"
+#line 76 "snazzle.y"
     { cout << "new defined snazzle type: " << (yyvsp[(2) - (2)].sval) << endl; }
     break;
 
   case 11:
 
 /* Line 1806 of yacc.c  */
-#line 67 "snazzle.y"
+#line 86 "snazzle.y"
     { cout << "new snazzle: " << (yyvsp[(1) - (6)].ival) << (yyvsp[(2) - (6)].ival) << (yyvsp[(3) - (6)].ival) << (yyvsp[(4) - (6)].ival) << (yyvsp[(5) - (6)].sval) << endl; }
     break;
 
 
 
 /* Line 1806 of yacc.c  */
-#line 1411 "snazzle.tab.c"
+#line 1435 "snazzle.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1638,7 +1662,7 @@ yyreturn:
 
 
 /* Line 2067 of yacc.c  */
-#line 73 "snazzle.y"
+#line 92 "snazzle.y"
 
 
 main() {

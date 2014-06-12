@@ -27,8 +27,27 @@ void yyerror(const char *s);
 // define the constant-string tokens:
 %token SNAZZLE TYPE
 %token END
-%token COMMA
+%token SLASH
 %token COLON
+%token LEFT_BRACE
+%token RIGHT_BRACE
+%token LEFT_SQUARE
+%token RIGHT_SQUARE
+%token COMMA
+%token HASH
+%token PERCENTAGE
+%token INTRJECTION
+%token EQUAL
+%token LESS_THEN
+%token MORE_THEN
+%token MORE_EQUAL_THEN
+%token LESS_EQUAL_THEN
+%token CONSTRAINT
+%token AUTOINCREMENT
+%token BACKSLASH
+%token LEFT_BRACKET
+%token RIGHT_BRACKET
+%token MINUS
 
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:

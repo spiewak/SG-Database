@@ -40,11 +40,30 @@
      SNAZZLE = 258,
      TYPE = 259,
      END = 260,
-     COMMA = 261,
+     SLASH = 261,
      COLON = 262,
-     INT = 263,
-     DOUBLE = 264,
-     STRING = 265
+     LEFT_BRACE = 263,
+     RIGHT_BRACE = 264,
+     LEFT_SQUARE = 265,
+     RIGHT_SQUARE = 266,
+     COMMA = 267,
+     HASH = 268,
+     PERCENTAGE = 269,
+     INTRJECTION = 270,
+     EQUAL = 271,
+     LESS_THEN = 272,
+     MORE_THEN = 273,
+     MORE_EQUAL_THEN = 274,
+     LESS_EQUAL_THEN = 275,
+     CONSTRAINT = 276,
+     AUTOINCREMENT = 277,
+     BACKSLASH = 278,
+     LEFT_BRACKET = 279,
+     RIGHT_BRACKET = 280,
+     MINUS = 281,
+     INT = 282,
+     DOUBLE = 283,
+     STRING = 284
    };
 #endif
 
@@ -64,7 +83,7 @@ typedef union YYSTYPE
 
 
 /* Line 2068 of yacc.c  */
-#line 68 "snazzle.tab.h"
+#line 87 "snazzle.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
