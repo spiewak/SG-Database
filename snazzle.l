@@ -4,14 +4,12 @@
 using namespace std;
 #define YY_DECL extern "C" int yylex()
 
-int lines = 0;
+int line_num = 1;
 
 %}
 %%
-[ \t\n] ;
-sNaZZle        { return SNAZZLE; }
-type           { return TYPE; }
-end            { return END; }
+[ \t] ;
+
 \/		       { return SLASH; }
 :			   { return COLON; }
 \{			   { return LEFT_BRACE; }
@@ -43,6 +41,8 @@ A			   { return AUTOINCREMENT; }
 	yylval.sval = strdup(yytext);
 	return VARCHAR;
 }
+
+\n             { ++line_num; }
 
 .              ;
 %%

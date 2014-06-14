@@ -37,35 +37,32 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     SNAZZLE = 258,
-     TYPE = 259,
-     END = 260,
-     DIRECTION = 261,
-     SLASH = 262,
-     COLON = 263,
-     LEFT_BRACE = 264,
-     RIGHT_BRACE = 265,
-     LEFT_SQUARE = 266,
-     RIGHT_SQUARE = 267,
-     COMMA = 268,
-     HASH = 269,
-     PERCENTAGE = 270,
-     INTERJECTION = 271,
-     EQUAL = 272,
-     LESS_THEN = 273,
-     MORE_THEN = 274,
-     MORE_EQUAL_THEN = 275,
-     LESS_EQUAL_THEN = 276,
-     CONSTRAINT = 277,
-     AUTOINCREMENT = 278,
-     BACKSLASH = 279,
-     LEFT_BRACKET = 280,
-     RIGHT_BRACKET = 281,
-     MINUS = 282,
-     HEADER_DATA = 283,
-     INT = 284,
-     DOUBLE = 285,
-     VARCHAR = 286
+     HEADER_DATA = 258,
+     DIRECTION = 259,
+     SLASH = 260,
+     COLON = 261,
+     LEFT_BRACE = 262,
+     RIGHT_BRACE = 263,
+     LEFT_SQUARE = 264,
+     RIGHT_SQUARE = 265,
+     COMMA = 266,
+     HASH = 267,
+     PERCENTAGE = 268,
+     INTERJECTION = 269,
+     EQUAL = 270,
+     LESS_THEN = 271,
+     MORE_THEN = 272,
+     MORE_EQUAL_THEN = 273,
+     LESS_EQUAL_THEN = 274,
+     CONSTRAINT = 275,
+     AUTOINCREMENT = 276,
+     BACKSLASH = 277,
+     LEFT_BRACKET = 278,
+     RIGHT_BRACKET = 279,
+     MINUS = 280,
+     INT = 281,
+     DOUBLE = 282,
+     VARCHAR = 283
    };
 #endif
 
@@ -76,7 +73,7 @@ typedef union YYSTYPE
 {
 
 /* Line 2068 of yacc.c  */
-#line 21 "snazzle.y"
+#line 22 "snazzle.y"
 
 	int ival;
 	double dval;
@@ -85,7 +82,7 @@ typedef union YYSTYPE
 
 
 /* Line 2068 of yacc.c  */
-#line 89 "snazzle.tab.h"
+#line 86 "snazzle.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

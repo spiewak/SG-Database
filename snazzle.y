@@ -9,6 +9,7 @@ using namespace std;
 extern "C" int yylex();
 extern "C" int yyparse();
 extern "C" FILE *yyin;
+extern int line_num;
  
 void yyerror(const char *s);
 %}
@@ -25,8 +26,8 @@ void yyerror(const char *s);
 }
 
 // define the constant-string tokens:
-%token SNAZZLE TYPE
-%token END
+
+%token HEADER_DATA
 %token DIRECTION
 %token SLASH
 %token COLON
@@ -49,7 +50,6 @@ void yyerror(const char *s);
 %token LEFT_BRACKET
 %token RIGHT_BRACKET
 %token MINUS
-%token HEADER_DATA
 
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:
@@ -69,7 +69,7 @@ base:
 	base table | table
 	;
 table:
-	SLASH VARCHAR SLASH COLON columns COLON constraints LEFT_BRACE records RIGHT_BRACE
+	SLASH VARCHAR SLASH COLON columns COLON conditions LEFT_BRACE records RIGHT_BRACE
 	;
 columns:
 	columns column | column 
@@ -78,11 +78,25 @@ column:
 	name 
 	| COMMA name
 	;
+conditions:
+	COLON CONSTRAINT constraints COLON 
+	| COLON AUTOINCREMENT autoincrements COLON
+	| COLON CONSTRAINT constraints COLON COLON AUTOINCREMENT autoincrements COLON
+	|
+	;
 constraints:
 	constraints constraint | constraint
 	;
 constraint:
-	COLON CONSTRAINT VARCHAR operator function COLON
+	VARCHAR operator function
+	| COMMA VARCHAR operator function
+	;
+autoincrements:
+	autoincrements autoincrement | autoincrement
+	;
+autoincrement:
+	VARCHAR
+	| COMMA VARCHAR
 	;
 operator:
 	EQUAL 
@@ -101,6 +115,9 @@ argument:
 	INT 
 	| DOUBLE 
 	| coordinate
+	| COMMA INT 
+	| COMMA DOUBLE 
+	| COMMA coordinate
 	;
 name:
 	VARCHAR
@@ -130,6 +147,11 @@ value:
 	| DOUBLE 
 	| coordinate 
 	| date
+	| COMMA VARCHAR 
+	| COMMA INT 
+	| COMMA DOUBLE 
+	| COMMA coordinate 
+	| COMMA date
 	;
 date:
 	INT MINUS INT MINUS INT
@@ -158,7 +180,8 @@ int main(int argc, char **argv) {
 }
 
 void yyerror(const char *s) {
-	cout << "EEK, parse error!  Message: " << s << endl;
+	cout << "Message: " << s <<endl;
+	cout << "Error occured near line: " << line_num << "." <<endl;
 	// might as well halt now:
 	exit(-1);
 }
