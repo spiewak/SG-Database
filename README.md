@@ -1,2 +1,4 @@
 Usage:
-	run: ./database example.in
+=====
+run: 
+	< ./database example.in >
