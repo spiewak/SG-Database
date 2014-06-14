@@ -37,7 +37,7 @@ void yyerror(const char *s);
 %token COMMA
 %token HASH
 %token PERCENTAGE
-%token INTRJECTION
+%token INTERJECTION
 %token EQUAL
 %token LESS_THEN
 %token MORE_THEN
@@ -49,6 +49,7 @@ void yyerror(const char *s);
 %token LEFT_BRACKET
 %token RIGHT_BRACKET
 %token MINUS
+%token HEADER_DATA
 
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:
@@ -58,51 +59,51 @@ void yyerror(const char *s);
 
 %%
 
-// the first rule defined is the highest-level rule, which in our
-// case is just the concept of a whole "snazzle file":
-/*snazzle:
-	header template body_section footer { cout << "done with a snazzle file!" << endl; }
-	;
-header:
-	SNAZZLE DOUBLE { cout << "reading a snazzle file version " << $2 << endl; }
-	;
-template:
-	typelines
-	;
-typelines:
-	typelines typeline
-	| typeline
-	;
-typeline:
-	TYPE VARCHAR { cout << "new defined snazzle type: " << $2 << endl; }
-	;
-body_section:
-	body_lines
-	;
-body_lines:
-	body_lines body_line
-	| body_line
-	;
-body_line:
-	INT INT INT INT VARCHAR COMMA HASH { cout << "new snazzle: " << $1 << $2 << $3 << $4 << $5 << endl; }
-	;
-footer:
-	END
-	;
-*/
 
+file:
+	version base
+	;
+version:
+	HEADER_DATA DOUBLE { cout << "Database engine version: " << $2 << endl; }
+	;
 base:
-	base
-	table
+	base table | table
 	;
 table:
-	SLASH VARCHAR SLASH COLON columns COLON LEFT_BRACE records RIGHT_BRACE
+	SLASH VARCHAR SLASH COLON columns COLON constraints LEFT_BRACE records RIGHT_BRACE
 	;
 columns:
 	columns column | column 
 	;
 column:
-	COMMA VARCHAR
+	COMMA name
+	;
+constraints:
+	constraints constraint | constraint
+	;
+constraint:
+	COLON CONSTRAINT VARCHAR operator function COLON
+	;
+operator:
+	EQUAL | LESS_THEN | MORE_THEN | MORE_EQUAL_THEN | LESS_EQUAL_THEN
+	;
+function:
+	VARCHAR LEFT_BRACKET arguments RIGHT_BRACKET
+	;
+arguments:
+	arguments argument | argument
+	;
+argument:
+	INT | DOUBLE | coordinate
+	;
+name:
+	attributes VARCHAR
+	;
+attributes:
+	attributes attribute | attribute
+	;
+attribute:
+	HASH | PERCENTAGE | INTERJECTION
 	;
 records:
 	records record | record
@@ -124,9 +125,9 @@ coordinate:
 	
 %%
 
-main() {
+int main(int argc, char **argv) {
 	// open a file handle to a particular file:
-	FILE *myfile = fopen("example.in", "r");
+	FILE *myfile = fopen(argv[1], "r");
 	// make sure it's valid:
 	if (!myfile) {
 		cout << "I can't open a.snazzle.file!" << endl;

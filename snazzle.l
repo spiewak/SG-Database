@@ -18,7 +18,7 @@ end            { return END; }
 ,			   { return COMMA; }
 #			   { return HASH; }
 \%			   { return PERCENTAGE; }
-!			   { return INTRJECTION; }
+!			   { return INTERJECTION; }
 = 			   { return EQUAL; }
 \<			   { return LESS_THEN; }
 \>			   { return MORE_THEN; }
@@ -30,7 +30,8 @@ A			   { return AUTOINCREMENT; }
 \(			   { return LEFT_BRACKET; }
 \)			   { return RIGHT_BRACKET; }
 -			   { return MINUS; }
-
+\@	   	   	   { return HEADER_DATA; }
+ 
 [[0-9]*\.[0-9]*,[0-9]*\.[0-9]*,[0-9]*\.[0-9]*,[0-9]*\.[0-9]*]]  { return DIRECTION; } 
 [0-9]+\.[0-9]+ { yylval.dval = atof(yytext); return DOUBLE; }
 [0-9]+         { yylval.ival = atoi(yytext); return INT; }

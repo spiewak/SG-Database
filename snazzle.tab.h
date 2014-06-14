@@ -50,7 +50,7 @@
      COMMA = 268,
      HASH = 269,
      PERCENTAGE = 270,
-     INTRJECTION = 271,
+     INTERJECTION = 271,
      EQUAL = 272,
      LESS_THEN = 273,
      MORE_THEN = 274,
@@ -62,9 +62,10 @@
      LEFT_BRACKET = 280,
      RIGHT_BRACKET = 281,
      MINUS = 282,
-     INT = 283,
-     DOUBLE = 284,
-     VARCHAR = 285
+     HEADER_DATA = 283,
+     INT = 284,
+     DOUBLE = 285,
+     VARCHAR = 286
    };
 #endif
 
@@ -84,7 +85,7 @@ typedef union YYSTYPE
 
 
 /* Line 2068 of yacc.c  */
-#line 88 "snazzle.tab.h"
+#line 89 "snazzle.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

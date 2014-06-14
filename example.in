@@ -1,15 +1,9 @@
+@ 1.01
 / tabelka1 /  
-: , id , imie , nazwisko , wiek:
+: ,#id , !imie , !nazwisko , !wiek:
+: C imie > length(12 13):
 { 
  [ 1 Marcin Kowalski] 
  [ 2 Barbara Puc ]
  [ 3 Zygmunt Kasa ]
-}
-
-/ tabelka2 /  
-: , id , imie , nazwisko , wiek:
-{ 
- [ 1 Jacek Rostow] 
- [ 2 Jaroslaw Ges ]
- [ 3 Piotr Wasicki  s ]
 }
