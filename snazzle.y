@@ -75,7 +75,8 @@ columns:
 	columns column | column 
 	;
 column:
-	COMMA name
+	name 
+	| COMMA name
 	;
 constraints:
 	constraints constraint | constraint
@@ -84,7 +85,11 @@ constraint:
 	COLON CONSTRAINT VARCHAR operator function COLON
 	;
 operator:
-	EQUAL | LESS_THEN | MORE_THEN | MORE_EQUAL_THEN | LESS_EQUAL_THEN
+	EQUAL 
+	| LESS_THEN
+	| MORE_THEN 
+	| MORE_EQUAL_THEN 
+	| LESS_EQUAL_THEN
 	;
 function:
 	VARCHAR LEFT_BRACKET arguments RIGHT_BRACKET
@@ -93,19 +98,25 @@ arguments:
 	arguments argument | argument
 	;
 argument:
-	INT | DOUBLE | coordinate
+	INT 
+	| DOUBLE 
+	| coordinate
 	;
 name:
-	attributes VARCHAR
+	VARCHAR
+	| attributes VARCHAR
 	;
 attributes:
 	attributes attribute | attribute
 	;
 attribute:
-	HASH | PERCENTAGE | INTERJECTION
+	HASH 
+	| PERCENTAGE 
+	| INTERJECTION
 	;
 records:
-	records record | record
+	records record 
+	| record
 	;
 record:
 	LEFT_SQUARE values RIGHT_SQUARE
@@ -114,7 +125,11 @@ values:
 	values value | value
 	;
 value:
-	VARCHAR | INT | DOUBLE | coordinate | date
+	VARCHAR 
+	| INT 
+	| DOUBLE 
+	| coordinate 
+	| date
 	;
 date:
 	INT MINUS INT MINUS INT

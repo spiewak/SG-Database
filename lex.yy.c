@@ -512,7 +512,10 @@ char *yytext;
 #include "snazzle.tab.h"
 using namespace std;
 #define YY_DECL extern "C" int yylex()
-#line 516 "lex.yy.c"
+
+int lines = 0;
+
+#line 519 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -699,9 +702,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 7 "snazzle.l"
+#line 10 "snazzle.l"
 
-#line 705 "lex.yy.c"
+#line 708 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -787,152 +790,152 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 /* rule 1 can match eol */
 YY_RULE_SETUP
-#line 8 "snazzle.l"
+#line 11 "snazzle.l"
 ;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 9 "snazzle.l"
+#line 12 "snazzle.l"
 { return SNAZZLE; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 10 "snazzle.l"
+#line 13 "snazzle.l"
 { return TYPE; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 11 "snazzle.l"
+#line 14 "snazzle.l"
 { return END; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 12 "snazzle.l"
+#line 15 "snazzle.l"
 { return SLASH; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 13 "snazzle.l"
+#line 16 "snazzle.l"
 { return COLON; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 14 "snazzle.l"
+#line 17 "snazzle.l"
 { return LEFT_BRACE; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 15 "snazzle.l"
+#line 18 "snazzle.l"
 { return RIGHT_BRACE; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 16 "snazzle.l"
+#line 19 "snazzle.l"
 { return LEFT_SQUARE; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 17 "snazzle.l"
+#line 20 "snazzle.l"
 { return RIGHT_SQUARE; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 18 "snazzle.l"
+#line 21 "snazzle.l"
 { return COMMA; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 19 "snazzle.l"
+#line 22 "snazzle.l"
 { return HASH; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 20 "snazzle.l"
+#line 23 "snazzle.l"
 { return PERCENTAGE; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 21 "snazzle.l"
+#line 24 "snazzle.l"
 { return INTERJECTION; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 22 "snazzle.l"
+#line 25 "snazzle.l"
 { return EQUAL; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 23 "snazzle.l"
+#line 26 "snazzle.l"
 { return LESS_THEN; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 24 "snazzle.l"
+#line 27 "snazzle.l"
 { return MORE_THEN; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 25 "snazzle.l"
+#line 28 "snazzle.l"
 { return MORE_EQUAL_THEN; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 26 "snazzle.l"
+#line 29 "snazzle.l"
 { return LESS_EQUAL_THEN; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 27 "snazzle.l"
+#line 30 "snazzle.l"
 { return CONSTRAINT; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 28 "snazzle.l"
+#line 31 "snazzle.l"
 { return AUTOINCREMENT; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 29 "snazzle.l"
+#line 32 "snazzle.l"
 { return BACKSLASH; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 30 "snazzle.l"
+#line 33 "snazzle.l"
 { return LEFT_BRACKET; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 31 "snazzle.l"
+#line 34 "snazzle.l"
 { return RIGHT_BRACKET; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 32 "snazzle.l"
+#line 35 "snazzle.l"
 { return MINUS; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 33 "snazzle.l"
+#line 36 "snazzle.l"
 { return HEADER_DATA; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 35 "snazzle.l"
+#line 38 "snazzle.l"
 { return DIRECTION; } 
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 36 "snazzle.l"
+#line 39 "snazzle.l"
 { yylval.dval = atof(yytext); return DOUBLE; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 37 "snazzle.l"
+#line 40 "snazzle.l"
 { yylval.ival = atoi(yytext); return INT; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 38 "snazzle.l"
+#line 41 "snazzle.l"
 {
 	// we have to copy because we can't rely on yytext not changing underneath us:
 	yylval.sval = strdup(yytext);
@@ -941,15 +944,15 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 43 "snazzle.l"
+#line 47 "snazzle.l"
 ;
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 44 "snazzle.l"
+#line 48 "snazzle.l"
 ECHO;
 	YY_BREAK
-#line 953 "lex.yy.c"
+#line 956 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1947,7 +1950,13 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 44 "snazzle.l"
+#line 48 "snazzle.l"
 
 
+
+/*main(int argc, char **argv)
+{
+	yylex();
+	printf("%8d\n", lines);
+}*/
 

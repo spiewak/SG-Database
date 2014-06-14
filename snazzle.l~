@@ -3,6 +3,9 @@
 #include "snazzle.tab.h"
 using namespace std;
 #define YY_DECL extern "C" int yylex()
+
+int lines = 0;
+
 %}
 %%
 [ \t\n] ;
@@ -30,7 +33,7 @@ A			   { return AUTOINCREMENT; }
 \(			   { return LEFT_BRACKET; }
 \)			   { return RIGHT_BRACKET; }
 -			   { return MINUS; }
-@	   	   	   { return HEADER_DATA; }
+\@	   	   	   { return HEADER_DATA; }
  
 [[0-9]*\.[0-9]*,[0-9]*\.[0-9]*,[0-9]*\.[0-9]*,[0-9]*\.[0-9]*]]  { return DIRECTION; } 
 [0-9]+\.[0-9]+ { yylval.dval = atof(yytext); return DOUBLE; }
@@ -42,3 +45,9 @@ A			   { return AUTOINCREMENT; }
 }
 .              ;
 %%
+
+/*main(int argc, char **argv)
+{
+	yylex();
+	printf("%8d\n", lines);
+}*/

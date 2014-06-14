@@ -1,7 +1,7 @@
 @ 1.01
 / tabelka1 /  
-: ,#id , !imie , !nazwisko , !wiek:
-: C imie > length(12 13):
+: #id , !imie , !nazwisko , !wiek, jeszcze:
+: C imie < length(12 13):
 { 
  [ 1 Marcin Kowalski] 
  [ 2 Barbara Puc ]

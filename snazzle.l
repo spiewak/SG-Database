@@ -3,6 +3,9 @@
 #include "snazzle.tab.h"
 using namespace std;
 #define YY_DECL extern "C" int yylex()
+
+int lines = 0;
+
 %}
 %%
 [ \t\n] ;
@@ -40,5 +43,12 @@ A			   { return AUTOINCREMENT; }
 	yylval.sval = strdup(yytext);
 	return VARCHAR;
 }
+
 .              ;
 %%
+
+/*main(int argc, char **argv)
+{
+	yylex();
+	printf("%8d\n", lines);
+}*/
