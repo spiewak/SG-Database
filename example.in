@@ -2,7 +2,7 @@
 / tabelka1 /  
 : #id , !imie , !nazwisko , !wiek, jeszcze:
 : C wiek < between(12, 10), nazwisko > between(9,10):
-: A imie:
+: A imie,nazwisko:
 { 
  [ 1, Marcin, Kowalski] 
  [ 2, Barbara, Puc ]
