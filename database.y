@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-#include "snazzle.tab.h"  // to get the token types that we return
+#include "database.tab.h"  // to get the token types that we return
 
 // stuff from flex that bison needs to know about:
 extern "C" int yylex();
@@ -50,6 +50,7 @@ void yyerror(const char *s);
 %token LEFT_BRACKET
 %token RIGHT_BRACKET
 %token MINUS
+%token UNIDENTIFIED_CHARACTER
 
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:
@@ -166,7 +167,7 @@ int main(int argc, char **argv) {
 	FILE *myfile = fopen(argv[1], "r");
 	// make sure it's valid:
 	if (!myfile) {
-		cout << "I can't open a.snazzle.file!" << endl;
+		cout << "I can't open a database file!" << endl;
 		return -1;
 	}
 	// set flex to read from it instead of defaulting to STDIN:

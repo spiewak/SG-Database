@@ -492,10 +492,10 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "snazzle.l"
-#line 2 "snazzle.l"
+#line 1 "database.l"
+#line 2 "database.l"
 #include <iostream>
-#include "snazzle.tab.h"
+#include "database.tab.h"
 using namespace std;
 #define YY_DECL extern "C" int yylex()
 
@@ -688,7 +688,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 10 "snazzle.l"
+#line 10 "database.l"
 
 #line 694 "lex.yy.c"
 
@@ -775,137 +775,137 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "snazzle.l"
+#line 11 "database.l"
 ;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 13 "snazzle.l"
+#line 13 "database.l"
 { return SLASH; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 14 "snazzle.l"
+#line 14 "database.l"
 { return COLON; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 15 "snazzle.l"
+#line 15 "database.l"
 { return LEFT_BRACE; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "snazzle.l"
+#line 16 "database.l"
 { return RIGHT_BRACE; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 17 "snazzle.l"
+#line 17 "database.l"
 { return LEFT_SQUARE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 18 "snazzle.l"
+#line 18 "database.l"
 { return RIGHT_SQUARE; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 19 "snazzle.l"
+#line 19 "database.l"
 { return COMMA; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 20 "snazzle.l"
+#line 20 "database.l"
 { return HASH; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 21 "snazzle.l"
+#line 21 "database.l"
 { return PERCENTAGE; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 22 "snazzle.l"
+#line 22 "database.l"
 { return INTERJECTION; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 23 "snazzle.l"
+#line 23 "database.l"
 { return EQUAL; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 24 "snazzle.l"
+#line 24 "database.l"
 { return LESS_THEN; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 25 "snazzle.l"
+#line 25 "database.l"
 { return MORE_THEN; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 26 "snazzle.l"
+#line 26 "database.l"
 { return MORE_EQUAL_THEN; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 27 "snazzle.l"
+#line 27 "database.l"
 { return LESS_EQUAL_THEN; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 28 "snazzle.l"
+#line 28 "database.l"
 { return CONSTRAINT; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 29 "snazzle.l"
+#line 29 "database.l"
 { return AUTOINCREMENT; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 30 "snazzle.l"
+#line 30 "database.l"
 { return BACKSLASH; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 31 "snazzle.l"
+#line 31 "database.l"
 { return LEFT_BRACKET; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 32 "snazzle.l"
+#line 32 "database.l"
 { return RIGHT_BRACKET; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 33 "snazzle.l"
+#line 33 "database.l"
 { return MINUS; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 34 "snazzle.l"
+#line 34 "database.l"
 { return HEADER_DATA; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 36 "snazzle.l"
+#line 36 "database.l"
 { return DIRECTION; } 
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 37 "snazzle.l"
+#line 37 "database.l"
 { yylval.dval = atof(yytext); return DOUBLE; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 38 "snazzle.l"
+#line 38 "database.l"
 { yylval.ival = atoi(yytext); return INT; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 39 "snazzle.l"
+#line 39 "database.l"
 {
 	// we have to copy because we can't rely on yytext not changing underneath us:
 	yylval.sval = strdup(yytext);
@@ -915,17 +915,17 @@ YY_RULE_SETUP
 case 28:
 /* rule 28 can match eol */
 YY_RULE_SETUP
-#line 45 "snazzle.l"
+#line 45 "database.l"
 { ++line_num; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 47 "snazzle.l"
-;
+#line 47 "database.l"
+{ return UNIDENTIFIED_CHARACTER; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 48 "snazzle.l"
+#line 48 "database.l"
 ECHO;
 	YY_BREAK
 #line 932 "lex.yy.c"
@@ -1926,7 +1926,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 48 "snazzle.l"
+#line 48 "database.l"
 
 
 

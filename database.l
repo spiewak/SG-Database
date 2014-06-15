@@ -1,6 +1,6 @@
 %{
 #include <iostream>
-#include "snazzle.tab.h"
+#include "database.tab.h"
 using namespace std;
 #define YY_DECL extern "C" int yylex()
 
@@ -44,7 +44,7 @@ A			   { return AUTOINCREMENT; }
 
 \n             { ++line_num; }
 
-.              ;
+.			   { return UNIDENTIFIED_CHARACTER; }
 %%
 
 /*main(int argc, char **argv)

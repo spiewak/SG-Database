@@ -60,9 +60,10 @@
      LEFT_BRACKET = 278,
      RIGHT_BRACKET = 279,
      MINUS = 280,
-     INT = 281,
-     DOUBLE = 282,
-     VARCHAR = 283
+     UNIDENTIFIED_CHARACTER = 281,
+     INT = 282,
+     DOUBLE = 283,
+     VARCHAR = 284
    };
 #endif
 
@@ -82,7 +83,7 @@ typedef union YYSTYPE
 
 
 /* Line 2068 of yacc.c  */
-#line 86 "database.tab.h"
+#line 87 "database.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
